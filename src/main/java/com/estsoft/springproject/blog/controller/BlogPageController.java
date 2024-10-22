@@ -26,6 +26,7 @@ public class BlogPageController {
 
     @GetMapping("/articles")
     public String showArticle(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         List<Article> articleList = blogService.findAll();
 
