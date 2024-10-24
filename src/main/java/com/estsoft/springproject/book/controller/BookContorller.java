@@ -20,32 +20,32 @@ public class BookContorller {
         this.bookService = bookService;
     }
 
-    @GetMapping
-    public String showAll(Model model) {
-        List<BookDTO> list = bookService.findAll()
-                .stream()
-                .map(BookDTO::new)
-                .toList();
-        model.addAttribute("bookList", list);
-        return "bookManagement";
-    }
-
-    @GetMapping("/{id}")
-    public String showOne(@PathVariable String id, Model model) {
-        Book book = bookService.findBy(id);
-        model.addAttribute("book", new BookDTO(book));
-        return "bookDetail";
-    }
-
-    // POST /books
-    // id, name, author 정보 받아서 DB에 저장
-    // 저장된 책 정보가 바로 노출될 수 있도록 화면 구성 (bookManagement.html)
-    @PostMapping
-    public String addBook(@RequestParam String id,
-                          @RequestParam String name,
-                          @RequestParam String author) {
-        bookService.saveOne(new Book(id, name, author));
-
-        return "redirect:/books";    // GET /books   3xx
-    }
+//    @GetMapping
+//    public String showAll(Model model) {
+//        List<BookDTO> list = bookService.findAll()
+//                .stream()
+//                .map(BookDTO::new)
+//                .toList();
+//        model.addAttribute("bookList", list);
+//        return "bookManagement";
+//    }
+//
+//    @GetMapping("/{id}")
+//    public String showOne(@PathVariable String id, Model model) {
+//        Book book = bookService.findBy(id);
+//        model.addAttribute("book", new BookDTO(book));
+//        return "bookDetail";
+//    }
+//
+//    // POST /books
+//    // id, name, author 정보 받아서 DB에 저장
+//    // 저장된 책 정보가 바로 노출될 수 있도록 화면 구성 (bookManagement.html)
+//    @PostMapping
+//    public String addBook(@RequestParam String id,
+//                          @RequestParam String name,
+//                          @RequestParam String author) {
+//        bookService.saveOne(new Book(id, name, author));
+//
+//        return "redirect:/books";    // GET /books   3xx
+//    }
 }

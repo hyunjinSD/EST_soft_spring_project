@@ -16,15 +16,15 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public List<Book> findAll() {
-        return bookRepository.findAll(Sort.by("id"));   // 오름차순
-    }
-
-    public Book findBy(String id) {
-        return bookRepository.findById(id).orElse(new Book());
-    }
-
-    public Book saveOne(Book book) {
-        return bookRepository.save(book);
-    }
+//    public List<Book> findAll() {
+//        return bookRepository.findAll(Sort.by("id"));   // 오름차순
+//    }
+//
+//    public Book findBy(String id) {
+//        return bookRepository.findById(id).orElse(new Book());
+//    }
+//
+//    public Book saveOne(Book book) {
+//        return bookRepository.save(book);
+//    }
 }
